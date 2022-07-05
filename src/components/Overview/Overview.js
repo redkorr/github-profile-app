@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-const Overview = ({ userData }) => {
+import { useData } from '../../context/DataContext';
+
+const Overview = () => {
+  const userData = useData();
   return (
     <div>
       <p>{userData.login}</p>
