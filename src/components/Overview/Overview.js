@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import DataContext, { useData } from '../Context/DataContext';
 
-const Overview = ({ useData }) => {
+const Overview = ({}) => {
   const userData = useContext(DataContext);
   return (
     <div>

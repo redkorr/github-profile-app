@@ -1,11 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
-const DataContext = React.createContext();
+const DataContext = createContext();
 export const useData = () => {
   return useContext(DataContext);
 };
 
 export const DataProvider = ({ children }) => {
+  const [userData, setUserData] = useState(fetchUserProfile);
   useEffect(() => {
     fetchUserProfile();
   }, []);
@@ -16,7 +17,6 @@ export const DataProvider = ({ children }) => {
 
     setUserData(data);
   };
-  const [userData, setUserData] = useState(fetchUserProfile);
 
   return (
     <DataContext.Provider value={userData}>{children}</DataContext.Provider>
