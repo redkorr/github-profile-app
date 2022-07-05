@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 import { Header, Overview, Repositories } from './components';
-import { DataProvider } from './components/Context/DataContext';
+import { DataProvider } from './context/DataContext';
 
 import './App.css';
 
