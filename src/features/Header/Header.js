@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Searchbar } from '..';
+import { Searchbar } from './components';
 
 const Header = () => {
   return (
