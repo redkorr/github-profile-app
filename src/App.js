@@ -1,7 +1,7 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-
-import { Header, Overview, Repositories } from './components';
+import { Overview, Repositories } from './pages';
+import { Header } from './features';
 import { DataProvider } from './context/DataContext';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 import './App.css';
 
@@ -12,7 +12,7 @@ function App() {
         <Header />
         <Routes>
           <Route
-            path='/'
+            path='/:name'
             element={
               <DataProvider>
                 <Overview />
