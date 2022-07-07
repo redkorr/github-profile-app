@@ -8,7 +8,6 @@ const Overview = () => {
   const user = useData(name);
   return (
     <div>
-      {console.log(user)}
       <h1>{user.login}</h1>
       <img src={user.avatar_url} />
     </div>
