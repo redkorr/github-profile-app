@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import BurgerIcon from '../../../../assets/burger-menu.svg';
+
 import styles from './UserCard.module.css';
 
 const UserCard = ({ user }) => {
+  const [isActive, setIsActive] = useState(false);
+
   const createDate = new Date(user.created_at);
   const today = new Date();
   const difference = (
@@ -21,26 +25,33 @@ const UserCard = ({ user }) => {
         />
       </div>
       <div className={styles.burgerMenuWrapper}>
-        <button className={styles.burgerMenuButton}>
-          <img alt='burger menu icon' src='/burger-menu.svg'></img>
+        <button
+          className={
+            isActive ? styles.burgerMenuButtonActive : styles.burgerMenuButton
+          }
+          onClick={() => setIsActive(!isActive)}
+        >
+          <img alt='burger menu icon' src={BurgerIcon}></img>
         </button>
       </div>
-      <div className={styles.userCardBottomSection}>
-        <div className={styles.text}>
-          <p>Bio: {user.bio}</p>
-          <p>Country: {user.location}</p>
-          <div>
-            <p>
-              Followers: {user.followers} Following: {user.following}
-            </p>
+      {isActive && (
+        <div className={styles.userCardBottomSection}>
+          <div className={styles.text}>
+            <p>Bio: {user.bio}</p>
+            <p>Country: {user.location}</p>
+            <div>
+              <p>
+                Followers: {user.followers} Following: {user.following}
+              </p>
+            </div>
+            <p>Company: {user.company}</p>
+            {user.created_at && (
+              <p>Created: {createDate.toISOString().slice(0, 10)} </p>
+            )}
+            <p>Profile age: {difference}</p>
           </div>
-          <p>Company: {user.company}</p>
-          {user.created_at && (
-            <p>Created: {createDate.toISOString().slice(0, 10)} </p>
-          )}
-          <p>Profile age: {difference}</p>
         </div>
-      </div>
+      )}
     </div>
   );
 };
