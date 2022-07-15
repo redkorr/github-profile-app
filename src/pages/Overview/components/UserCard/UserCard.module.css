@@ -44,3 +44,7 @@
   width: 100%;
   background-color: #695140;
 }
+.burgerMenuButton:hover {
+  cursor: pointer;
+  background-color: #725744;
+}
