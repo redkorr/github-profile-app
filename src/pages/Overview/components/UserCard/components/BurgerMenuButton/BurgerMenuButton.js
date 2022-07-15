@@ -1,7 +1,7 @@
 import React from 'react';
 
-import BurgerIcon from '../../../../../assets/burger-menu.svg';
-import styles from '.././UserCard.module.css';
+import BurgerIcon from '../../../../../../assets/burger-menu.svg';
+import styles from './BurgerMenuButton.module.css';
 
 const BurgerMenuButton = ({ isActive, setIsActive }) => {
   return (
