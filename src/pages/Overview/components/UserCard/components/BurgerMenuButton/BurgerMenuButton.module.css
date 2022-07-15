@@ -1,0 +1,28 @@
+.burgerMenuWrapper {
+  padding-bottom: 0px;
+}
+.burgerMenuButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  border: none;
+  width: 100%;
+  background-color: #695140;
+  border-radius: 0px 0px 4px 4px;
+}
+.burgerMenuButtonActive {
+  margin: 0px;
+  border: none;
+  display: block;
+  width: 100%;
+  background-color: #695140;
+}
+.burgerMenuButton:hover {
+  cursor: pointer;
+  background-color: #725744;
+}
+.burgerMenuButtonActive:hover {
+  cursor: pointer;
+  background-color: #725744;
+}
