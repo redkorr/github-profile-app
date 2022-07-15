@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-import Avatar from './components/Avatar';
-import BurgerMenuButton from './components/BurgerMenuButton';
-import ProfileAge from './components/ProfileAge';
+import { Avatar, BurgerMenuButton, ProfileAge } from './components';
 import styles from './UserCard.module.css';
 
 const UserCard = ({ user }) => {
@@ -13,7 +11,7 @@ const UserCard = ({ user }) => {
       <div className={styles.userCardUpperSection}>
         <h1>{user.login}</h1>
         <h2>{user.name}</h2>
-        <Avatar user={user} />
+        <Avatar src={user.avatar_url} />
       </div>
       <BurgerMenuButton isActive={isActive} setIsActive={setIsActive} />
 
