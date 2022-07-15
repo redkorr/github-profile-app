@@ -1,7 +1,7 @@
 import React from 'react';
 
-import BurgerIcon from '../../../../assets/burger-menu.svg';
-import styles from './UserCard.module.css';
+import BurgerIcon from '../../../../../assets/burger-menu.svg';
+import styles from '.././UserCard.module.css';
 
 const BurgerMenuButton = ({ isActive, setIsActive }) => {
   return (
@@ -12,10 +12,9 @@ const BurgerMenuButton = ({ isActive, setIsActive }) => {
         }
         onClick={() => {
           setIsActive(!isActive);
-          console.log(isActive);
         }}
       >
-        <img alt='burger menu icon' src={BurgerIcon}></img>
+        <img alt='burger menu icon' src={BurgerIcon} />
       </button>
     </div>
   );

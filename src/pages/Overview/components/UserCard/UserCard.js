@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
-import BurgerIcon from '../../../../assets/burger-menu.svg';
-import Avatar from './Avatar';
-import BurgerMenuButton from './BurgerMenuButton';
-import ProfileAge from './ProfileAge';
+import Avatar from './components/Avatar';
+import BurgerMenuButton from './components/BurgerMenuButton';
+import ProfileAge from './components/ProfileAge';
 import styles from './UserCard.module.css';
 
 const UserCard = ({ user }) => {
@@ -16,7 +15,7 @@ const UserCard = ({ user }) => {
         <h2>{user.name}</h2>
         <Avatar user={user} />
       </div>
-      <BurgerMenuButton isActive={isActive} setIsActive={() => setIsActive} />
+      <BurgerMenuButton isActive={isActive} setIsActive={setIsActive} />
 
       {isActive && (
         <div className={styles.userCardBottomSection}>

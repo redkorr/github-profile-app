@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './UserCard.module.css';
+import styles from '.././UserCard.module.css';
 
 const Avatar = ({ user }) => {
   return (
