@@ -1,4 +1,8 @@
+@import '/src/theme.module.css';
+
 body {
+  background-color: var(--bg-color);
+
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -13,4 +17,15 @@ code {
 }
 * {
   box-sizing: border-box;
+}
+h1 {
+  color: var(--text);
+}
+header {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  display: flex;
+  align-items: center;
+  background-color: var(--light);
 }

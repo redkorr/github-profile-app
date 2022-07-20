@@ -1,13 +1,14 @@
 import React from 'react';
 
+import styles from './Header.module.css';
 import { Searchbar } from './components';
 
 const Header = () => {
   return (
-    <div>
-      <h1>Github Profile App</h1>
+    <header>
+      <h1 className={styles.title}>Github Profile App</h1>
       <Searchbar></Searchbar>
-    </div>
+    </header>
   );
 };
 
