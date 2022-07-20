@@ -8,7 +8,7 @@
   margin: 0px;
   border: none;
   width: 100%;
-  background-color: #695140;
+  background-color: var(--dark);
   border-radius: 0px 0px 4px 4px;
 }
 .burgerMenuButtonActive {
@@ -16,13 +16,13 @@
   border: none;
   display: block;
   width: 100%;
-  background-color: #695140;
+  background-color: var(--dark);
 }
 .burgerMenuButton:hover {
   cursor: pointer;
-  background-color: #725744;
+  background-color: var(--dark-hover);
 }
 .burgerMenuButtonActive:hover {
   cursor: pointer;
-  background-color: #725744;
+  background-color: var(--dark-hover);
 }

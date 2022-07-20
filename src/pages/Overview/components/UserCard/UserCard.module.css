@@ -3,17 +3,17 @@
   width: 25%;
 }
 .userCardUpperSection {
-  background-color: #856c59;
+  background-color: var(--light);
   padding: 0px 15px 15px 15px;
-  color: #1c1c1c;
+  color: var(--text);
   overflow: hidden;
   border-radius: 4px 4px 0px 0px;
 }
 .userCardBottomSection {
-  background-color: #856c59;
+  background-color: var(--light);
   padding: 0px 15px 10px 15px;
   overflow: hidden;
-  color: #1c1c1c;
+  color: var(--text);
   border-radius: 0px 0px 4px 4px;
 }
 

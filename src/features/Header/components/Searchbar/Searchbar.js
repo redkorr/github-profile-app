@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from '../../Header.module.css';
 
 const Searchbar = () => {
   const inputRef = useRef(null);
@@ -12,8 +13,17 @@ const Searchbar = () => {
   const handleRedirect = () => navigate(`/${inputRef.current.value}`);
   return (
     <div>
-      <input type='text' ref={inputRef} onKeyDown={(e) => handleEnter(e)} />
-      <button type='button' onClick={handleRedirect}>
+      <input
+        className={styles.searchbar}
+        type='text'
+        ref={inputRef}
+        onKeyDown={(e) => handleEnter(e)}
+      />
+      <button
+        className={styles.inputButton}
+        type='button'
+        onClick={handleRedirect}
+      >
         Search
       </button>
     </div>
