@@ -1,7 +1,8 @@
-import { Overview, Repositories } from './pages';
-import { Header } from './features';
-import { DataProvider } from './context/DataContext';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+
+import { DataProvider } from './context/DataContext';
+import { Header } from './features';
+import { Overview, Repositories } from './pages';
 
 import './App.css';
 
