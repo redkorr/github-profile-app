@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
+
 import DataContext from '../../context/DataContext';
-import { UserCard } from './components';
+import { DisplayBlock, UserCard } from './components';
+import styles from './Overview.module.css';
 
 const Overview = () => {
   const { name } = useParams();
@@ -9,8 +11,9 @@ const Overview = () => {
   const user = useData(name);
 
   return (
-    <div>
+    <div className={styles.div}>
       <UserCard user={user} />
+      <DisplayBlock />
     </div>
   );
 };
