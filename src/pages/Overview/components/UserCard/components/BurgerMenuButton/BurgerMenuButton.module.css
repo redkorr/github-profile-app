@@ -14,7 +14,9 @@
 .burgerMenuButtonActive {
   margin: 0px;
   border: none;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   background-color: var(--dark);
 }
