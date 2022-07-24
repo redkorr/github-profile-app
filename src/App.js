@@ -2,7 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 import { DataProvider } from './context/DataContext';
 import { Header } from './features';
-import { Overview, Repositories } from './pages';
+import { PageLayout } from './pages';
 
 import './App.css';
 
@@ -16,12 +16,10 @@ function App() {
             path='/:name'
             element={
               <DataProvider>
-                <Overview />
+                <PageLayout />
               </DataProvider>
             }
-          >
-            <Route path='repositories' element={<Repositories />} />
-          </Route>
+          ></Route>
         </Routes>
       </div>
     </Router>

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import DataContext from '../../context/DataContext';
 import { DisplayBlock, UserCard } from './components';
-import styles from './Overview.module.css';
+import styles from './PageLayout.module.css';
 
 const Overview = () => {
   const { name } = useParams();

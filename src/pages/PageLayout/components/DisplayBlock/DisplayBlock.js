@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
 import DataContext from '../../../../context/DataContext';
-import Repositories from '../../../Repositories/Repositories';
+import Repositories from '../../../../components/Repositories/Repositories';
 import DisplayBlockHeader from './components/DisplayBlockHeader/DisplayBlockHeader';
 import styles from './DisplayBlock.module.css';
 

@@ -1,2 +1,1 @@
-export { default as Overview } from './Overview/Overview';
-export { default as Repositories } from './Repositories/Repositories';
+export { default as PageLayout } from './PageLayout/PageLayout';
