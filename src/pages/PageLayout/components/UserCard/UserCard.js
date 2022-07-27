@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
+import DataContext from '../../../../context/DataContext';
 import { Avatar, BurgerMenuButton, ProfileAge } from './components';
 import styles from './UserCard.module.css';
 
-const UserCard = ({ user }) => {
+const UserCard = () => {
   const [isActive, setIsActive] = useState(false);
-
+  const { name } = useParams();
+  const { useData } = useContext(DataContext);
+  const user = useData(name);
   return (
     <div className={styles.wrapper}>
       <div className={styles.userCardUpperSection}>
