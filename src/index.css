@@ -29,3 +29,7 @@ header {
   align-items: center;
   background-color: var(--light);
 }
+p {
+  color: var(--text);
+  font-weight: bold;
+}
