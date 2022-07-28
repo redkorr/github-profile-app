@@ -2,12 +2,33 @@ import React from 'react';
 
 import styles from './DisplayBlockHeader.module.css';
 
-const DisplayBlockHeader = () => {
+const DisplayBlockHeader = ({ setIndex }) => {
   return (
     <header className={styles.header}>
-      <button className={styles.button}>Overview</button>
-      <button className={styles.button}>Repositories</button>
-      <button className={styles.button}>Stars</button>
+      <button
+        className={styles.button}
+        onClick={() => {
+          setIndex(0);
+        }}
+      >
+        Overview
+      </button>
+      <button
+        className={styles.button}
+        onClick={() => {
+          setIndex(1);
+        }}
+      >
+        Repositories
+      </button>
+      <button
+        className={styles.button}
+        onClick={() => {
+          setIndex(2);
+        }}
+      >
+        Stars
+      </button>
     </header>
   );
 };
