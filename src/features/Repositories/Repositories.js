@@ -11,7 +11,7 @@ const Repositories = () => {
   return (
     <div>
       {repos.map((repo) => (
-        <Repository key={repo.id} repo={repo} />
+        <Repository key={repo.node.id} repo={repo.node} />
       ))}
     </div>
   );

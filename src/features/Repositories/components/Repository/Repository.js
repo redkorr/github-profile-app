@@ -11,46 +11,47 @@ import styles from './Repository.module.css';
 const Repository = ({ repo }) => {
   const {
     id,
-    html_url,
+    url,
     name,
-    topics,
-    language,
-    forks_count,
-    stargazers_count,
-    watchers_count,
-    pushed_at,
+    repositoryTopics,
+    languages,
+    forks,
+    stargazersCount,
+    watchers,
+    pushedAt,
     description,
   } = repo;
 
   return (
     <div className={styles.wrapper}>
-      <a className={styles.repoName} href={html_url}>
+      <a className={styles.repoName} href={url}>
         {name}
       </a>
       <p>{description}</p>
       <div className={styles.flexWrapper}>
-        {topics.map((topic) => (
-          <Topic key={`${id} ${topic}`} topic={topic} />
-        ))}
+        {repositoryTopics.nodes.length > 0 &&
+          repositoryTopics.nodes.map((topic) => (
+            <Topic key={`${id} ${topic.topic.name}`} topic={topic.topic.name} />
+          ))}
       </div>
       <div className={styles.bottomSection}>
-        <Language language={language} />
+        <Language language={languages.nodes} />
 
         <div className={styles.flexWrapper}>
           <div className={styles.flexWrapper}>
             <ForkIcon />
-            <p>{forks_count}</p>
+            <p>{forks.totalCount}</p>
           </div>
           <div className={styles.flexWrapper}>
             <StarIcon />
-            <p>{stargazers_count}</p>
+            <p>{stargazersCount}</p>
           </div>
           <div className={styles.flexWrapper}>
             <EyeIcon />
-            <p>{watchers_count}</p>
+            <p>{watchers.totalCount}</p>
           </div>
         </div>
-        <LastUpdate pushed_at={pushed_at} />
+        <LastUpdate pushed_at={pushedAt} />
       </div>
     </div>
   );

@@ -1,22 +1,16 @@
 import React from 'react';
 import styles from '../../Repository.module.css';
-import colors from '../../color.json';
 
 const Language = ({ language }) => {
-  const getColor = (language) => {
-    const lowerCaseLanguage = language.toLowerCase();
-    if (!colors[lowerCaseLanguage]) return '#fff';
-    else return colors[lowerCaseLanguage].color;
-  };
   return (
     <>
       {language ? (
         <div className={styles.bottomSectionFirst}>
           <div
             className={styles.languageColor}
-            style={{ backgroundColor: getColor(language) }}
+            style={{ backgroundColor: language[0].color }}
           ></div>
-          <p>{language}</p>
+          <p>{language[0].name}</p>
         </div>
       ) : (
         <div></div>

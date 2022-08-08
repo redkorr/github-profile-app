@@ -1,4 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
+import getUser from '../api/getUser';
+import getUserRepositories from '../api/getUserRepositories';
 
 const DataContext = createContext();
 
@@ -7,16 +9,15 @@ export const DataProvider = ({ children }) => {
   const [userRepositories, setUserRepositories] = useState([]);
 
   const fetchUserProfile = async (name) => {
-    const res = await fetch(`https://api.github.com/users/${name}`);
-    const data = await res.json();
+    const data = await getUser({ login: name });
 
-    setUserData(data);
+    setUserData(data.user);
   };
-  const fetchUserRepositories = async (name) => {
-    const res = await fetch(`https://api.github.com/users/${name}/repos`);
-    const data = await res.json();
 
-    setUserRepositories(data);
+  const fetchUserRepositories = async (name) => {
+    const data = await getUserRepositories({ login: name });
+
+    setUserRepositories(data.user.repositories.edges);
   };
 
   const useData = (name) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProfileAge = ({ user }) => {
-  const createDate = new Date(user.created_at);
+  const createDate = new Date(user.createdAt);
   const today = new Date();
   const difference = (
     (today - createDate) /
@@ -10,7 +10,7 @@ const ProfileAge = ({ user }) => {
   ).toFixed(1);
   return (
     <>
-      {user.created_at && (
+      {user.createdAt && (
         <p>Created: {createDate.toISOString().slice(0, 10)} </p>
       )}
       <p>Profile age: {difference}</p>
