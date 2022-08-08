@@ -15,7 +15,7 @@ const UserCard = () => {
       <div className={styles.userCardUpperSection}>
         <h1>{user.login}</h1>
         <h2>{user.name}</h2>
-        <Avatar src={user.avatar_url} />
+        <Avatar src={user.avatarUrl} />
       </div>
       <BurgerMenuButton isActive={isActive} setIsActive={setIsActive} />
 
@@ -26,7 +26,8 @@ const UserCard = () => {
             <p>Country: {user.location}</p>
             <div>
               <p>
-                Followers: {user.followers} Following: {user.following}
+                Followers: {user.followers.totalCount} Following:{' '}
+                {user.following.totalCount}
               </p>
             </div>
             <p>Company: {user.company}</p>
