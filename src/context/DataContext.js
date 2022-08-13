@@ -1,5 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
+
 import getUser from '../api/getUser';
+import getUserContributions from '../api/getUserContributions';
 import getUserRepositories from '../api/getUserRepositories';
 
 const DataContext = createContext();
@@ -7,6 +9,7 @@ const DataContext = createContext();
 export const DataProvider = ({ children }) => {
   const [userData, setUserData] = useState({});
   const [userRepositories, setUserRepositories] = useState([]);
+  const [userContributions, setUserContributions] = useState([]);
 
   const fetchUserProfile = async (name) => {
     const data = await getUser({ login: name });
@@ -20,6 +23,11 @@ export const DataProvider = ({ children }) => {
     setUserRepositories(data.user.repositories.edges);
   };
 
+  const fetchUserContributions = async (name) => {
+    const data = await getUserContributions({ login: name });
+
+    setUserContributions(data.user);
+  };
   const useData = (name) => {
     useEffect(() => {
       fetchUserProfile(name);
@@ -35,11 +43,21 @@ export const DataProvider = ({ children }) => {
     return userRepositories;
   };
 
+  const useContributions = (name) => {
+    useEffect(() => {
+      fetchUserContributions(name);
+    }, [name]);
+
+    return userContributions;
+  };
+
   const providerValue = {
     userData,
     userRepositories,
+    userContributions,
     useData,
     useRepositories,
+    useContributions,
   };
 
   return (

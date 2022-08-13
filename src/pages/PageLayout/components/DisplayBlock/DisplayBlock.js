@@ -2,8 +2,8 @@ import { gql, request } from 'graphql-request';
 import React, { useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { Overview, Repositories, Stars } from '../../../../components';
 import DataContext from '../../../../context/DataContext';
+import { Overview, Repositories, Stars } from '../../../../features';
 import DisplayBlockHeader from './components/DisplayBlockHeader/DisplayBlockHeader';
 import styles from './DisplayBlock.module.css';
 
