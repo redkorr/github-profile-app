@@ -11,6 +11,9 @@ export const DataProvider = ({ children }) => {
   const [userRepositories, setUserRepositories] = useState([]);
   const [userContributions, setUserContributions] = useState([]);
 
+
+
+
   const fetchUserProfile = async (name) => {
     const data = await getUser({ login: name });
 
@@ -22,11 +25,9 @@ export const DataProvider = ({ children }) => {
 
     setUserRepositories(data.user.repositories.edges);
   };
-
-  const fetchUserContributions = async (name) => {
-    const data = await getUserContributions({ login: name });
-
-    setUserContributions(data.user);
+  const fetchUserContributions = async (name, firstDay, lastDay) => {
+    const data = await getUserContributions({ login: name, firstDay, lastDay});
+    setUserContributions(data.user.contributionsCollection.contributionCalendar);
   };
   const useData = (name) => {
     useEffect(() => {
@@ -45,7 +46,11 @@ export const DataProvider = ({ children }) => {
 
   const useContributions = (name) => {
     useEffect(() => {
-      fetchUserContributions(name);
+      const today = new Date();
+      const year = today.toISOString().slice( 0, 4 );
+      const firstDay = new Date( year, 0, 1 );
+      const lastDay = new Date( year, 11, 31);
+      fetchUserContributions(name, firstDay.toISOString(), lastDay.toISOString());
     }, [name]);
 
     return userContributions;
