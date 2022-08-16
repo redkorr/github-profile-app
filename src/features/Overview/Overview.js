@@ -8,10 +8,14 @@ const Overview = () => {
   const { name } = useParams();
   const { useContributions } = useContext(DataContext);
   const contributions = useContributions(name);
-
+  console.log(contributions);
   return (
     <div>
-      <Contributions contributions={contributions}/>
+      {contributions.isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <Contributions contributions={contributions} />
+      )}
     </div>
   );
 };
