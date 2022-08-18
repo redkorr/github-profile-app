@@ -1,5 +1,20 @@
 .table {
-  background-color: var(--light);
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin: auto;
 }
 .cell {
+  margin: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 1px;
+}
+.wrapper {
+  margin: 10px 0px;
+  background-color: var(--light);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
 }

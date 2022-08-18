@@ -10,26 +10,25 @@ export const DataProvider = ({ children }) => {
   const [userData, setUserData] = useState({});
   const [userRepositories, setUserRepositories] = useState([]);
   const [userContributions, setUserContributions] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
-
-  let isLoading = true;
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchUserProfile = async (name) => {
     const data = await getUser({ login: name });
 
     setUserData(data.user);
   };
-
   const fetchUserRepositories = async (name) => {
     const data = await getUserRepositories({ login: name });
 
     setUserRepositories(data.user.repositories.edges);
   };
   const fetchUserContributions = async (name, firstDay, lastDay) => {
+    setIsLoading(true);
     const data = await getUserContributions({ login: name, firstDay, lastDay });
     setUserContributions(
-      data.user.contributionsCollection.contributionCalendar
+      data.user.contributionsCollection.contributionCalendar.weeks
     );
+    setIsLoading(false);
   };
   const useData = (name) => {
     useEffect(() => {
@@ -47,22 +46,14 @@ export const DataProvider = ({ children }) => {
   };
 
   const useContributions = (name) => {
+    const today = new Date();
+    const year = today.toISOString().slice(0, 4);
+    const firstDay = new Date(year, 0, 1);
+    const lastDay = new Date(year, 11, 31);
     useEffect(() => {
-      const today = new Date();
-      const year = today.toISOString().slice(0, 4);
-      const firstDay = new Date(year, 0, 1);
-      const lastDay = new Date(year, 11, 31);
-      isLoading = true;
-      console.log(isLoading);
-      fetchUserContributions(
-        name,
-        firstDay.toISOString(),
-        lastDay.toISOString()
-      );
-      isLoading = false;
-      console.log(isLoading);
-    }, [name, isLoading]);
-    return userContributions;
+      fetchUserContributions(name, firstDay, lastDay);
+    }, [name]);
+    return [userContributions, isLoading];
   };
 
   const providerValue = {
@@ -72,7 +63,6 @@ export const DataProvider = ({ children }) => {
     useData,
     useRepositories,
     useContributions,
-    isLoading,
   };
 
   return (

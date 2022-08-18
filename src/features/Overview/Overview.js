@@ -1,21 +1,12 @@
-import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 
-import DataContext from '../../context/DataContext';
 import { Contributions } from './components';
+import styles from './Overview.module.css';
 
 const Overview = () => {
-  const { name } = useParams();
-  const { useContributions } = useContext(DataContext);
-  const contributions = useContributions(name);
-  console.log(contributions);
   return (
-    <div>
-      {contributions.isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <Contributions contributions={contributions} />
-      )}
+    <div className={styles.wrapper}>
+      <Contributions />
     </div>
   );
 };
