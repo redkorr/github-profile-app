@@ -1,17 +1,64 @@
 .table {
   display: flex;
   flex-direction: row;
-  padding: 10px;
-  margin: auto;
 }
 .cell {
   margin: 2px;
   width: 10px;
   height: 10px;
   border-radius: 1px;
+  position: relative;
 }
 .wrapper {
   margin: 10px 0px;
+  background-color: var(--light);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.tooltipText {
+  visibility: hidden;
+  width: 180px;
+  background-color: var(--dark);
+  color: var(--bg-color);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltipText::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--dark) transparent transparent transparent;
+}
+
+.cell:hover .tooltipText {
+  visibility: visible;
+}
+
+.hidden {
+  pointer-events: none;
+}
+.weekDay {
+  color: var(--text);
+  margin-top: 0px;
+  margin-bottom: 1px;
+  margin-left: 20px;
+}
+.wrapper .wrapper {
+  margin: 12px;
   background-color: var(--light);
   width: 100%;
   display: flex;

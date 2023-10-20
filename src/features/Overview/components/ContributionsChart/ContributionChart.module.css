@@ -1,0 +1,14 @@
+.Wrapper {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--light);
+}
+
+.Chart {
+  margin: 5px;
+  padding: 5px;
+  width: 500px;
+  height: 500px;
+}
