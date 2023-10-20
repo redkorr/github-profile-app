@@ -4,7 +4,7 @@ import styles from '../../Repository.module.css';
 const Language = ({ language }) => {
   return (
     <>
-      {language ? (
+      {language[0] ? (
         <div className={styles.bottomSectionFirst}>
           <div
             className={styles.languageColor}
