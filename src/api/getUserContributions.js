@@ -17,6 +17,10 @@ const query = `query getUserContributions($login: String!, $firstDay: DateTime!,
           }
         }
       }
+      totalIssueContributions
+      totalCommitContributions
+      totalPullRequestContributions
+      totalPullRequestReviewContributions
     }
   }
 }`;

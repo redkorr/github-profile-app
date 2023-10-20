@@ -16,7 +16,7 @@ const Repository = ({ repo }) => {
     repositoryTopics,
     languages,
     forks,
-    stargazersCount,
+    stargazerCount,
     watchers,
     pushedAt,
     description,
@@ -44,7 +44,7 @@ const Repository = ({ repo }) => {
           </div>
           <div className={styles.flexWrapper}>
             <StarIcon />
-            <p>{stargazersCount}</p>
+            <p>{stargazerCount}</p>
           </div>
           <div className={styles.flexWrapper}>
             <EyeIcon />
